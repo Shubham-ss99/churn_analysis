@@ -1,60 +1,55 @@
-Churn_analysis
-Churn analysis of the customer stopping buying/ stopping subscription of a product or service.
-
-Churn Analysis & Customer Intelligence
-
-1. The Business ChallengeIn the hyper-competitive OTT landscape (Netflix, Hotstar, Prime), retention is the only way to act as a Data Analyst tasked with identifying high-risk subscribers using a multi-dimension demographics, Subscription tiers, and Support escalations).
-
-2. Core Tech StackSQL & Python Integration (numpy, pandas, sqlite3, matplotlib, seaborn), Performance cleaning, feature engineering, analytics), Behavioral Visualization, Writing Actionable.
-
-3. Project MilestonesRelational Data Extraction: Connecting Python to SQL databases to pull multi-table datasets.Advanced Feature Engineering: Data imports, calculating tenure, churn rates, and customer aging.Executive Reporting: Translating technical findings into billion-dollar business insights.Note: This isn't just a coding exercise, it's a business solution. You'll leave with a portfolio-ready project applicable to E-commerce, SaaS, Fintech and Adtech industries.
+Project Case Study: Subscription Churn Analysis & Customer Intelligence
 
 
+1. Executive Summary
 
-Observations by Churn Risk Segment
+Customer churn analysis quantifies the rate at which customers terminate their subscriptions or cease transactions with a business. In hyper-competitive subscription markets—such as the Over-the-Top (OTT) streaming sector (e.g., Netflix, Disney+ Hotstar, Amazon Prime)—retention serves as the primary engine for sustainable revenue growth.
 
-Low Churn Risk
-• Points cluster at the lower end of monthly_charges (~10-20) for Standard and Basic plans.
-• Premium plan customers in this facet show one clear high outlier (~$90/month) alongside a tighter cluster
-around $20-25.
-• Basic plan customers here have the lowest charges observed in the entire chart (~$5-10).
-High Churn Risk
-• Charges are more evenly spread across Standard, Premium, and Basic plans, roughly in the $10-25 range.
-• No extreme outliers are visible in this facet - high-risk customers appear concentrated in a narrower charge
-band than low-risk customers.
-• Both plotted genders appear represented across Standard and Basic plans in this segment.
-Mid Churn Risk
-• Sparsest facet - only two points are visible (one Standard, one Premium), both in the $15-25 range.
-• Too few points to draw any pattern; likely an artifact of how few customers fall into this segment, or a small
-overall sample.
-Preliminary Insights
-1 Premium-plan volatility: The one high-value outlier (~$90) sits in the Low churn-risk facet on a Premium
-plan - tentatively suggesting higher-spend Premium customers are not automatically higher churn risks.
-This is a single data point, not a trend.
-2 Basic plan = lowest spend, mixed risk: Basic-plan customers appear at the lowest charge levels in both
-Low and High risk facets, suggesting monthly_charges alone may not strongly separate Basic-plan churn
-risk.
-3 No obvious linear relationship: Higher monthly_charges doesn't consistently track with higher or lower
-churn risk - risk segments overlap substantially in the same charge range ($10-25).
-4 Gender split: Both colors (genders) appear in most facets without one dominating a particular risk level,
-though the sample is too small to confirm this holds at scale.
-5 Mid-risk underrepresentation: The Mid-risk facet has visibly fewer points than Low or High - worth
-checking whether this reflects true class balance or a filtering artifact.
-Recommended Next Steps
-• Export the full dataset (not just the chart) and re-run this analysis with actual counts, churn rate %, and
-confidence intervals.
-• Add a churn rate by segment table (count and % of customers who churned, by plan_type and churn_risk).
-• Bring in additional features - tenure, contract length, support interactions, payment method.
-• Run a proper statistical test (chi-square or logistic regression) instead of relying on a single scatter plot.
-• Check class balance across churn_risk categories - the Mid-risk facet looks sparse relative to Low/High.
-• Re-generate this chart with jitter or point transparency (alpha) to reduce overplotting on the real dataset.
+This project establishes a data-driven framework to identify high-risk subscribers by analyzing multi-dimensional datasets, including user demographics, subscription tiers, billing histories, and customer support escalation logs.
 
 
-Summary
-The available chart shows customer monthly_charges split by plan_type, churn_risk, and gender, but reflects
-only ~15-20 visible data points - not enough to draw statistically sound churn conclusions. What can be said
-directionally: churn risk levels overlap heavily in the same charge range, Basic-plan customers cluster at the
-lowest spend regardless of risk level, and one Premium-plan outlier suggests spend alone doesn't cleanly
-predict risk. To turn this into an actionable churn analysis, the next step is pulling the full underlying dataset and
-re-running the analysis with actual churn rates, sample sizes, and additional behavioral features rather than a
-single bivariate chart
+2. Core Technical Stack
+
+The analysis integrates relational database management with advanced data science workflows to transform raw data into operational business intelligence:
+
+Data Extraction & Engineering: SQL (sqlite3), pandas, and numpy for multi-table relational joins, data cleaning, feature extraction, and cohort aging.
+Behavioral Visualization: matplotlib and seaborn for exploratory data analysis (EDA) and multi-facet risk distribution mapping.
+Strategic Reporting: Execution of actionable executive summaries connecting technical metrics to business outcomes.
+
+3. Project Milestones & Methodology
+
+Relational Data Extraction: Establishing secure connections between Python environments and SQL databases to extract, clean, and merge disparate operational tables.
+Advanced Feature Engineering: Calculating key customer metrics including operational tenure, historical churn velocities, billing variances, and customer lifetime value (CLV) aging.
+Executive Reporting: Translating statistical models and data visualizations into high-impact, portfolio-ready business insights applicable across SaaS, Fintech, E-commerce, and Adtech ecosystems.
+
+
+Exploratory Data Analysis: Key Observations by Risk Segment
+
+A preliminary exploratory analysis was conducted using a multi-faceted scatter plot cross-referencing monthly_charges, plan_type, churn_risk, and gender. Due to a highly constrained initial sample size (~15–20 visible data points), these observations represent directional hypotheses rather than statistically validated conclusions.
+
+
+Churn Risk Segment	Observed Billing & Plan Distributions	Key Findings & Vulnerabilities
+Low Risk	• High concentration of Standard and Basic plans within the low-tier pricing band (~$10–$20/month).
+• Basic plans occupy the absolute lowest cost floor ($5–$10/month).	• High-Value Retention: A notable Premium plan outlier maintains a high monthly spend (~$90) without demonstrating elevated risk indicators.
+High Risk	• Dense concentration across all three major tiers (Basic, Standard, Premium) strictly bound within a narrow pricing corridor ($10–$25/month).	• Compressed Risk Band: High-risk accounts are heavily tightly packed; extreme pricing outliers are notably absent from this segment.
+Mid Risk	• Severe data sparsity with only two recorded observations (one Standard plan, one Premium plan) falling between $15–$25/month.	• Sample Limitation: The segment is too sparse to establish valid behavioral patterns, indicating potential data filtering issues or severe class imbalance.
+
+
+Preliminary Strategic Insights
+
+Premium Tier Volatility Insulation: The presence of a high-value Premium outlier (~$90/month) within the low-risk segment tentatively indicates that top-tier billing levels do not automatically accelerate customer churn.
+Basic Plan Price Insensitivity: Basic-tier subscribers cluster tightly at the lowest pricing thresholds across both high and low-risk segments. This indicates that monthly charge amounts alone are insufficient indicators for predicting churn within budget tiers.
+Non-Linear Risk Correlations: Churn risk does not scale linearly with pricing. Significant overlap exists across all risk classifications within the core $10–$25 pricing spectrum.
+Demographic Equity: Gender distributions appear uniformly distributed across all risk categories and subscription tiers, suggesting gender is not a primary driver of subscriber attrition at this scale.
+
+
+Data Optimization & Next Steps
+
+To transform these initial exploratory findings into an enterprise-grade predictive model, the following technical steps are required:
+
+Dataset Scalability & Validation: Extract the complete relational database to validate counts, calculate precise churn percentages per segment, and calculate tight confidence intervals.
+Segmented Retention Matrices: Construct comprehensive churn matrix tables tracking absolute counts and percentage distributions broken down by plan_type and churn_risk.
+Feature Expansion: Integrate deeper behavioral features into the model pipeline, specifically subscriber tenure, contract structures, support ticket frequencies, and historical payment methods.
+Statistical Modeling: Advance beyond bivariate visualizations by running rigorous statistical verification, including Chi-Square tests for categorical independence and Logistic Regression for directional risk modeling.
+Class Imbalance Resolution: Audit the underlying data structure to determine if the sparsity of the Mid-Risk segment is an artifact of upstream data filtering or a true reflection of the population distribution.
+Visualization Enhancement: Re-render the exploratory charts using point-jittering and alpha-transparency to eliminate overplotting and accurately display high-density data clusters.
